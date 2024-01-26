@@ -34,13 +34,13 @@ jobs:
       - name: Set JS base url env
         shell: bash
         run: |
-          if [[ ${$BRANCH_NAME} = 'dev' ]]; then
+          if [[ $BRANCH_NAME = 'dev' ]]; then
             printf 'inside dev %s \n' "$BRANCH_NAME"
             echo "JSBASEURL=https://github.dev.com/static/js" >> $GITHUB_ENV
-          elif [[ ${$BRANCH_NAME} = 'feature-test' ]]; then
+          elif [[ $BRANCH_NAME = 'feature-test' ]]; then
             printf 'inside feature-test %s \n' "$BRANCH_NAME"
             echo "JSBASEURL=https://github.feature-test.com/static/js" >> $GITHUB_ENV
-          elif [[ ${$BRANCH_NAME} = 'main' ]]; then
+          elif [[ $BRANCH_NAME = 'main' ]]; then
             printf 'inside main %s \n' "$BRANCH_NAME"
           fi
       
