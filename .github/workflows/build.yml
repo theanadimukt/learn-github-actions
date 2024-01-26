@@ -24,10 +24,10 @@ jobs:
           protected=("main" "dev")
           if [[ ${protected[@]} =~ "$BRANCH_NAME" ]]; then
             printf 'inside if %s \n' "$BRANCH_NAME"
-            echo "IMAGE_NAME=ghcr.io/highspeedoffice/hso-admin-api" >> $GITHUB_ENV
+            echo "IMAGE_NAME=ghcr.io/theanadimukt/learn-github-actions" >> $GITHUB_ENV
           else
             printf 'inside else %s \n' "$BRANCH_NAME"
-            echo "IMAGE_NAME=ghcr.io/highspeedoffice/hso-admin-api-$BRANCH_NAME" >> $GITHUB_ENV
+            echo "IMAGE_NAME=ghcr.io/theanadimukt/learn-github-actions-$BRANCH_NAME" >> $GITHUB_ENV
           fi
 
       - name: Set branch name env var
