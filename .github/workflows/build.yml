@@ -7,6 +7,9 @@ on:
       - feature/*
   workflow_dispatch:
 
+env:
+  JSBASEURL: https://github.com/static/js
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -23,22 +26,26 @@ jobs:
         run: |
           protected=("main" "dev")
           if [[ ${protected[@]} =~ "$BRANCH_NAME" ]]; then
-            printf 'inside if %s \n' "$BRANCH_NAME"
             echo "IMAGE_NAME=ghcr.io/theanadimukt/learn-github-actions" >> $GITHUB_ENV
           else
-            printf 'inside else %s \n' "$BRANCH_NAME"
             echo "IMAGE_NAME=ghcr.io/theanadimukt/learn-github-actions-$BRANCH_NAME" >> $GITHUB_ENV
           fi
 
-      - name: Set branch name env var
+      - name: Set JS base url env
         shell: bash
         run: |
-          echo "BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/} | tr / -)" >> $GITHUB_ENV
+          if [[ "$BRANCH_NAME" = 'dev' ]]; then
+            printf 'inside dev %s \n' "$BRANCH_NAME"
+            echo "JSBASEURL=https://github.dev.com/static/js" >> $GITHUB_ENV
+          else if [[ "$BRANCH_NAME" = 'feature-test' ]]; then
+            printf 'inside else feature-test %s \n' "$BRANCH_NAME"
+            echo "JSBASEURL=https://github.feature-test.com/static/js" >> $GITHUB_ENV
+          fi
+      
 
       - name: Print vars
         shell: bash
         run: |
           printf '%s\n' "$BRANCH_NAME"
           printf '%s\n' "$IMAGE_NAME"
-          printf '%s\n' "${{ env.BRANCH_NAME }}"
-          printf '%s\n' "${{ env.IMAGE_NAME }}"
+          printf '%s\n' "$JSBASEURL"
