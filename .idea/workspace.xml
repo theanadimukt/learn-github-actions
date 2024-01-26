@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22ef0f5d-f035-46b3-bef7-5236842b4b4a" name="Changes" comment="config changes">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/build.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build.yml" afterDir="false" />
-    </list>
+    <list default="true" id="22ef0f5d-f035-46b3-bef7-5236842b4b4a" name="Changes" comment="config changes" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,16 +31,8 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="dev" />
-                    <option name="lastUsedInstant" value="1706199393" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="feature/test" />
-                    <option name="lastUsedInstant" value="1706198718" />
-                  </RecentBranch>
-                  <RecentBranch>
                     <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1706198035" />
+                    <option name="lastUsedInstant" value="1706263520" />
                   </RecentBranch>
                 </list>
               </option>
@@ -71,7 +61,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "dev",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "/Users/sagar/Projects/learnings/learn-github-actions",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -98,7 +88,7 @@
       <option name="presentableId" value="Default" />
       <updated>1706193848873</updated>
       <workItem from="1706193850535" duration="6141000" />
-      <workItem from="1706261061642" duration="2127000" />
+      <workItem from="1706261061642" duration="2315000" />
     </task>
     <task id="LOCAL-00001" summary="config changes">
       <option name="closed" value="true" />
