@@ -1,0 +1,44 @@
+name: Build Docker Image
+on:
+  push:
+    branches:
+      - main
+      - dev
+      - feature/*
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set branch name env var
+        shell: bash
+        run: |
+          echo "BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/} | tr / -)" >> $GITHUB_ENV
+
+      - name: Set image name env var
+        shell: bash
+        run: |
+          protected=("main" "dev")
+          if [[ ${protected[@]} =~ "$BRANCH_NAME" ]]; then
+            printf 'inside if %s \n' "$BRANCH_NAME"
+            echo "IMAGE_NAME=ghcr.io/highspeedoffice/hso-admin-api" >> $GITHUB_ENV
+          else
+            printf 'inside else %s \n' "$BRANCH_NAME"
+            echo "IMAGE_NAME=ghcr.io/highspeedoffice/hso-admin-api-$BRANCH_NAME" >> $GITHUB_ENV
+          fi
+
+      - name: Set branch name env var
+        shell: bash
+        run: |
+          echo "BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/} | tr / -)" >> $GITHUB_ENV
+
+      - name: Print vars
+        shell: bash
+        run: |
+          printf '%s\n' "$BRANCH_NAME"
+          printf '%s\n' "$IMAGE_NAME"
+          printf '%s\n' "${{ env.BRANCH_NAME }}"
+          printf '%s\n' "${{ env.IMAGE_NAME }}"
