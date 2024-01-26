@@ -37,7 +37,7 @@ jobs:
           if [[ "$BRANCH_NAME" = 'dev' ]]; then
             printf 'inside dev %s \n' "$BRANCH_NAME"
             echo "JSBASEURL=https://github.dev.com/static/js" >> $GITHUB_ENV
-          else if [[ "$BRANCH_NAME" = 'feature-test' ]]; then
+          elif [[ "$BRANCH_NAME" = 'feature-test' ]]; then
             printf 'inside else feature-test %s \n' "$BRANCH_NAME"
             echo "JSBASEURL=https://github.feature-test.com/static/js" >> $GITHUB_ENV
           fi
